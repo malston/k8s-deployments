@@ -8,3 +8,4 @@ metadata:
         path: ./plugins/wavefront-token-generator.sh
 spec:
   serviceAccountId: guid
+  wavefrontUrl: https://vmware.wavefront.com

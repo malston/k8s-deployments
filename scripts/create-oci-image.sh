@@ -19,7 +19,7 @@ if [[ -z $TOKEN ]]; then
   read -r TOKEN
 fi
 
-kustomize build --enable-alpha-plugins --enable-exec ./infrastructure/observability-system > wavefront-operator.yaml
+kustomize build --enable-alpha-plugins --enable-exec "$__DIR/../infrastructure/observability-system" > "$__DIR/../wavefront-operator.yaml"
 
 # Login by passing credentials directly
 flux push artifact "oci://docker.io/${ORG}/wavefront-operator:$(git tag --points-at HEAD)" \
@@ -27,3 +27,5 @@ flux push artifact "oci://docker.io/${ORG}/wavefront-operator:$(git tag --points
     --source="$(git config --get remote.origin.url)" \
     --revision="$(git tag --points-at HEAD)@sha1:$(git rev-parse HEAD)" \
     --creds "${ORG}:${TOKEN}"
+
+rm "$__DIR/../wavefront-operator.yaml"
