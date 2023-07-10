@@ -1,0 +1,10 @@
+apiVersion: platformengineering
+kind: WaveFrontAPITokenGenerator
+metadata:
+  name: waveFrontAPITokenGenerator
+  annotations:
+    config.kubernetes.io/function: |
+      exec: 
+        path: ./plugins/wavefront-token-generator.sh
+spec:
+  serviceAccountId: guid

@@ -7,6 +7,9 @@ resources:
   - https://github.com/wavefrontHQ/observability-for-kubernetes/releases/download/v2.9.0/wavefront-operator.yaml
   - wavefront.yaml
 
+generators:
+  - wavefronttoken.yaml
+
 patches:
   - patch: |
       - op: replace
