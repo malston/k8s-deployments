@@ -12,7 +12,7 @@ GITHUB_REPO=k8s-deployments
 mkdir -p "${__DIR}/../clusters/development"
 
 flux bootstrap github \
-    --context=kind-kind \
+    --context=dev \
     --owner="${GITHUB_USER}" \
     --repository="${GITHUB_REPO}" \
     --branch=main \
