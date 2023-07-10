@@ -5,6 +5,7 @@ namespace: observability-system
 
 resources:
   - https://github.com/wavefrontHQ/observability-for-kubernetes/releases/download/v2.9.0/wavefront-operator.yaml
+  - wavefront.yaml
 
 patches:
   - patch: |
@@ -14,22 +15,3 @@ patches:
     target:
       kind: Deployment
       name: wavefront-controller-manager
-
-patchesStrategicMerge:
-- |-
-  apiVersion: wavefront.com/v1alpha1
-  kind: Wavefront
-  metadata:
-    name: wavefront
-    namespace: observability-system
-  spec:
-    clusterName: dev
-    wavefrontUrl: vmware.wavefront.com
-    dataCollection:
-      metrics:
-        enable: true
-      logging:
-        enable: true
-    dataExport:
-      wavefrontProxy:
-        enable: true
