@@ -1,0 +1,26 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: wavefront-operator
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: oci://docker.io/malston538/wavefront-operator
+  ref:
+    tag: "latest"
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: wavefront-operator
+  namespace: flux-system
+spec:
+  targetNamespace: observability-system
+  interval: 10m
+  path: ./
+  prune: true
+  sourceRef:
+    kind: OCIRepository
+    name: wavefront-operator
+  wait: true
+  timeout: 5m
