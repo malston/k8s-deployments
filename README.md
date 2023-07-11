@@ -43,7 +43,15 @@ Wait for the development cluster reconciliation to finish:
 
 ```sh
 $ flux get kustomizations --watch
-NAME            	READY  	MESSAGE                                                        	
-flux-system     	True   	Applied revision: main/616001c38e7bc81b00ef2c65ac8cfd58140155b8	
+NAME            	READY  	MESSAGE
+flux-system     	True   	Applied revision: main/616001c38e7bc81b00ef2c65ac8cfd58140155b8
 observability-system         	Unknown	Reconciliation in progress
 ```
+
+## Development
+
+You can run the one time setup script [here](./scripts/setup.sh) to bootstrap
+flux onto any k8s cluster. If you're deploying this to a kind cluster and your
+context is set to something other than `dev`. Rename the context: `kubectl
+config rename-context kind-kind dev` before executing the script.
+
