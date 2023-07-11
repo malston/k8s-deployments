@@ -4,12 +4,13 @@ kind: Kustomization
 namespace: observability-system
 
 resources:
-  - sync.yaml
-  - wavefront.yaml
   - https://github.com/wavefrontHQ/observability-for-kubernetes/releases/download/v2.9.0/wavefront-operator.yaml
+  - wavefront.yaml
 
-# generators:
-#   - wavefronttoken.yaml
+secretGenerator:
+ - name: wavefront-secret
+   files:
+   - token=token.encrypted
 
 patches:
   - patch: |
