@@ -5,7 +5,7 @@ metadata:
   namespace: observability-system
 spec:
   clusterName: dev
-  wavefrontUrl: https://vmware.wavefront.com
+  wavefrontUrl: https://vmware.wavefront.com/api
   dataCollection:
     metrics:
       enable: true
