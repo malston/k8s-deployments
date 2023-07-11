@@ -39,3 +39,9 @@ gpg --export-secret-keys --armor "${KEY_FP}" | \
 # Also consider deleting the secret decryption key from you machine:
 # gpg --delete-secret-keys "${KEY_FP}"
 
+cat <<EOF > "$__DIR/../infrastructure/observability-system/.sops.yaml"
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(data|stringData)$
+    pgp: ${KEY_FP}
+EOF
