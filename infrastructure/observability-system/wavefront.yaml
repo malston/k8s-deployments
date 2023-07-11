@@ -10,7 +10,7 @@ spec:
     metrics:
       enable: true
     logging:
-      enable: true
+      enable: false
   dataExport:
     wavefrontProxy:
       enable: true
