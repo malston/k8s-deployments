@@ -24,5 +24,6 @@ if [[ -z $TOKEN ]]; then
   TOKEN=$(read_password "Enter wavefront api token: ")
 fi
 
+KEY_NAME="dev.markalston.net"
 KEY_FP=$(gpg --list-secret-keys "${KEY_NAME}" | grep 'sec   rsa4096' -A1 | tail -1 | awk '{$1=$1};1')
 echo "$TOKEN" | sops --pgp "$KEY_FP" -e /dev/stdin > "${__DIR}/../infrastructure/observability-system/token.encrypted"
