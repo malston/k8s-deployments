@@ -12,3 +12,7 @@ spec:
   serviceAccountName: kustomize-controller
   path: ./infrastructure/observability-system
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
