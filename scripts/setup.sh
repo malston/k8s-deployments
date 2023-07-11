@@ -14,7 +14,6 @@ if [[ -z $GITHUB_USER ]]; then
   read -r GITHUB_USER
 fi
 
-
 mkdir -p "${__DIR}/../clusters/development"
 
 flux bootstrap github \
