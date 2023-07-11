@@ -11,6 +11,8 @@ secretGenerator:
  - name: wavefront-secret
    files:
    - token=token.encrypted
+generatorOptions:
+  disableNameSuffixHash: true
 
 patches:
   - patch: |
