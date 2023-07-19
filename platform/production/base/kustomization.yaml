@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: observability-system
+
+resources:
+  - https://github.com/wavefrontHQ/observability-for-kubernetes/releases/download/v2.9.0/wavefront-operator.yaml
+  - wavefront.yaml
+
+secretGenerator:
+ - name: wavefront-secret
+   files:
+   - token=token.encrypted
+generatorOptions:
+  disableNameSuffixHash: true
+
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/template/spec/containters/0/image
+        value: harbor.markalston.net/tanzu_observability/kubernetes-operator:2.9.0
+    target:
+      kind: Deployment
+      name: wavefront-controller-manager

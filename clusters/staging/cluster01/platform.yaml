@@ -10,7 +10,7 @@ spec:
     kind: GitRepository
     name: flux-system
   serviceAccountName: kustomize-controller
-  path: ./infrastructure/observability-system
+  path: ./platform/staging/cluster01/observability-system
   prune: true
   decryption:
     provider: sops

@@ -17,8 +17,8 @@ generatorOptions:
 patches:
   - patch: |
       - op: replace
-        path: /spec/template/spec/image
-        value: projects.registry.vmware.com/tanzu_observability/kubernetes-operator:2.9.0
+        path: /spec/template/spec/containters/0/image
+        value: harbor.markalston.net/tanzu_observability/kubernetes-operator:2.9.0
     target:
       kind: Deployment
       name: wavefront-controller-manager

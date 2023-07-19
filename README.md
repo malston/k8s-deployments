@@ -4,7 +4,7 @@ This repository serves as the location for managing k8s clusters with Git and Fl
 
 ## Bootstrap the development cluster
 
-Install the Flux CLI and fork this repository on your personal GitHub account
+Install the Flux CLI and fork this repository on your [personal GitHub account](https://github.com/settings/tokens)
 and export your GitHub username and repo name:
 
 ```sh
@@ -27,7 +27,7 @@ flux bootstrap github \
     --repository="${GITHUB_REPO}" \
     --branch=main \
     --personal \
-    --path="clusters/development"
+    --path="clusters/development/cluster01"
 ```
 
 At this point flux cli will ask you for your `GITHUB_TOKEN` (a.k.a [Personal Access Token]).
@@ -55,3 +55,11 @@ flux onto any k8s cluster. If you're deploying this to a kind cluster and your
 context is set to something other than `dev`. Rename the context: `kubectl
 config rename-context kind-kind dev` before executing the script.
 
+### Bootstrap
+
+- Login to `cluster01` in `development`
+- Bootstrap Flux
+
+    ```sh
+    ./scripts/setup.sh
+    ```

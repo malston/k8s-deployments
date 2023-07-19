@@ -1,0 +1,15 @@
+apiVersion: wavefront.com/v1alpha1
+kind: Wavefront
+metadata:
+  name: wavefront
+  namespace: observability-system
+spec:
+  wavefrontUrl: https://vmware.wavefront.com
+  dataCollection:
+    metrics:
+      enable: true
+    logging:
+      enable: false
+  dataExport:
+    wavefrontProxy:
+      enable: true
