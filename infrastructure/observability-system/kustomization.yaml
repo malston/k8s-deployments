@@ -17,7 +17,7 @@ generatorOptions:
 patches:
   - patch: |
       - op: replace
-        path: /spec/template/spec/image
+        path: /spec/template/spec/containers/0/image
         value: projects.registry.vmware.com/tanzu_observability/kubernetes-operator:2.9.0
     target:
       kind: Deployment
